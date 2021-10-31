@@ -59,7 +59,7 @@ colorscheme iceberg
 tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 autocmd TermOpen * startinsert
-nnoremap <S-Left>  <C-w><<CR>
-nnoremap <S-Right> <C-w>><CR>
-nnoremap <S-Up>    <C-w>-<CR>
-nnoremap <S-Down>  <C-w>+<CR>
+nnoremap <Left>  :<C-u>vertical resize -1<CR>
+nnoremap <Right> :<C-u>vertical resize +1<CR>
+nnoremap <Up>    :<C-u>resize -1<CR>
+nnoremap <Down>  :<C-u>resize +1<CR>
