@@ -1,0 +1,8 @@
+.vscode/
+.config/coc/
+.config/configstore/
+.config/gh/
+.config/gitui/
+.config/iterm2/
+bin/appcode
+bin/webstorm
