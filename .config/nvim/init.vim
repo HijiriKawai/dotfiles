@@ -47,13 +47,19 @@ if len(s:removed_plugins) > 0
 endif
 " }}}
 
+" editor config
+set nocompatible
 set number
-:set list listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:·
+set list listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:·
 set smartindent
 set laststatus=2
 set wildmenu
-:set guifont=HackGen
+set guifont=HackGen
 colorscheme iceberg
-:tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 autocmd TermOpen * startinsert
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
