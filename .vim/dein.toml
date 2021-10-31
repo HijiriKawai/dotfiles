@@ -165,3 +165,9 @@ repo = 'markonm/traces.vim'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+hook_add = '''
+  let g:closetag_filenames = '*.html,*.tsx,*jsx'
+'''
