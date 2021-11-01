@@ -125,22 +125,35 @@ repo = 'roxma/vim-hug-neovim-rpc'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'kristijanhusak/defx-git'
-hook_add = '''
-call defx#custom#column('git', 'indicators', {
-  \ 'Modified'  : '✹',
-  \ 'Staged'    : '✚',
-  \ 'Untracked' : '✭',
-  \ 'Renamed'   : '➜',
-  \ 'Unmerged'  : '═',
-  \ 'Ignored'   : '☒',
-  \ 'Deleted'   : '✖',
-  \ 'Unknown'   : '?'
-  \ })
-'''
+repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
+hook_add = '''
+let g:defx_icons_enable_syntax_highlight = 1
+let g:defx_icons_column_length = 2
+let g:defx_icons_directory_icon = ''
+let g:defx_icons_mark_icon = '*'
+let g:defx_icons_copy_icon = ''
+let g:defx_icons_move_icon = ''
+let g:defx_icons_parent_icon = ''
+let g:defx_icons_default_icon = ''
+let g:defx_icons_directory_symlink_icon = ''
+'''
+
+[[plugins]]
+repo = "kristijanhusak/defx-git"
+hook_add = '''
+let g:defx_git#indicators = {
+  \ 'Modified'  : '+',
+  \ 'Staged'    : '●',
+  \ 'Untracked' : '?',
+  \ 'Renamed'   : '➜',
+  \ 'Unmerged'  : '═',
+  \ 'Deleted'   : 'x',
+  \ 'Unknown'   : '?'
+  \ }
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf'

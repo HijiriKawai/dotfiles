@@ -45,8 +45,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 export PATH=$PATH:/Users/hijiri/bin/
-# alias
+export PATH="/Users/hijiri/.deno/bin:$PATH"
 
+# alias
 alias e='exa --icons --git'
 alias l=e
 alias ls=e
@@ -73,6 +74,11 @@ alias vz='nvim ~/.zshrc'
 alias vim='nvim'
 alias python=python3
 
+# completion
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit
+compinit -u
+source <(vr completions zsh)
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
