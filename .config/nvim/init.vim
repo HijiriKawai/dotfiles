@@ -61,7 +61,7 @@ set shiftwidth=2
 set laststatus=2
 set wildmenu
 set guifont=HackGen
-colorscheme iceberg
+colorscheme hybrid
 tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 autocmd TermOpen * startinsert
