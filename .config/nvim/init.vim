@@ -48,6 +48,16 @@ if len(s:removed_plugins) > 0
 endif
 " }}}
 
+" treesitter config
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
 " editor config
 syntax enable
 filetype plugin indent on

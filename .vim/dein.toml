@@ -116,6 +116,9 @@ nnoremap <silent> <Leader>f :<C-u> Defx <CR>
 '''
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+
+[[plugins]]
 repo = 'roxma/nvim-yarp'
 
 [[plugins]]
