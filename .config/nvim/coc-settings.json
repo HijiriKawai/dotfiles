@@ -8,5 +8,10 @@
     "javascriptreact",
     "json",
     "toml"
-  ]
+  ],
+  "rust-analyzer.inlayHints.enable": true,
+  "rust-analyzer.inlayHints.refreshOnInsertMode": true,
+  "rust-analyzer.lens.methodReferences": true,
+  "rust-analyzer.hover.linksInHover": true,
+  "rust-analyzer.hover.documentation": true
 }
