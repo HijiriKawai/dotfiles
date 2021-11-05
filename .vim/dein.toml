@@ -18,6 +18,7 @@ let g:coc_global_extensions = [
   \'coc-go',
   \'coc-deno',
   \'coc-css',
+  \'coc-git',
 \]
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -44,9 +45,11 @@ hook_add = '''
     \  'enable': { 'tabline': 0 },
     \  'colorscheme': 'PaperColor',
     \  'active': {
-    \    'left': [ [ 'mode', 'paste' ], ['fugitive', 'filename']]
+    \    'left': [ [ 'mode', 'paste' ], [ 'fugitive' ,'filename', 'method' ], ['cocstatus'] ],
+    \    'right':[ [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ] ],
     \  },
     \  'component_function': {
+    \  'cocstatus': 'coc#status',
     \  'fugitive': 'LightlineFugitive',
     \  },
     \  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },

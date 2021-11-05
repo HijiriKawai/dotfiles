@@ -9,6 +9,8 @@
     "json",
     "toml"
   ],
+  "git.showCommitInFloating": true,
+  "git.addGBlameToBufferVar": true,
   "rust-analyzer.inlayHints.enable": true,
   "rust-analyzer.inlayHints.refreshOnInsertMode": true,
   "rust-analyzer.lens.methodReferences": true,
