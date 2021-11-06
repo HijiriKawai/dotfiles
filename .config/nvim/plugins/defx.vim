@@ -1,13 +1,13 @@
 call defx#custom#option('_', {
-  \'columns': 'git:icons:indent:filename:mark',
-  \'winwidth': 30,
-  \'split': 'vertical',
-  \'direction': 'topleft',
-  \'show_ignored_files': 1,
-  \'buffer_name': 'exlorer',
-  \'toggle': 1,
-  \'resume': 1,
-\})
+  \ 'columns': 'git:icons:indent:filename:mark',
+  \ 'winwidth': 30,
+  \ 'split': 'vertical',
+  \ 'direction': 'topleft',
+  \ 'show_ignored_files': 1,
+  \ 'buffer_name': 'exlorer',
+  \ 'toggle': 1,
+  \ 'resume': 1,
+\ })
 
 autocmd FileType defx call s:defx_my_settings()
 
