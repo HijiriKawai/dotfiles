@@ -2,6 +2,7 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "rust",
     "go",
+    "cpp",
     "javascript",
     "typescript",
     "typescriptreact",

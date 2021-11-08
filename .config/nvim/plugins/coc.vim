@@ -12,6 +12,7 @@ let g:coc_global_extensions = [
   \ 'coc-deno',
   \ 'coc-css',
   \ 'coc-git',
+  \ 'coc-clangd'
 \]
 
 nmap <silent> gd <Plug>(coc-definition)

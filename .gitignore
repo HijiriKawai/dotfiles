@@ -4,5 +4,6 @@
 .config/gh/
 .config/gitui/
 .config/iterm2/
+.config/octave/
 bin/appcode
 bin/webstorm
