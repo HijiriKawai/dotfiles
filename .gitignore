@@ -5,5 +5,6 @@
 .config/gitui/
 .config/iterm2/
 .config/octave/
+.config/yarn/
 bin/appcode
 bin/webstorm

@@ -2,7 +2,7 @@ set laststatus=2
 set noshowmode
 let g:lightline = {
   \ 'enable': { 'tabline': 0 },
-  \ 'colorscheme': 'PaperColor',
+  \ 'colorscheme': 'edge',
   \ 'active': {
     \ 'left': [ [ 'mode', 'paste' ], [ 'fugitive' ,'filename', 'method' ], ['cocstatus'] ],
     \ 'right':[ [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ] ],

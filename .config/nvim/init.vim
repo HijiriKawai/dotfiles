@@ -71,7 +71,7 @@ set shiftwidth=2
 set laststatus=2
 set wildmenu
 set guifont=HackGen
-colorscheme hybrid
+colorscheme edge
 tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
 autocmd TermOpen * startinsert
@@ -79,3 +79,9 @@ nnoremap <S-Left>  :<C-u>vertical resize -1<CR>
 nnoremap <S-Right> :<C-u>vertical resize +1<CR>
 nnoremap <S-Up>    :<C-u>resize -1<CR>
 nnoremap <S-Down>  :<C-u>resize +1<CR>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap ss :<C-u>sp<CR><C-w>j
+nnoremap sv :<C-u>vs<CR><C-w>l
