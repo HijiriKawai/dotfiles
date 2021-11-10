@@ -75,6 +75,8 @@ function! s:defx_my_settings() abort
   \ defx#do_action('print')
   nnoremap <silent><buffer><expr> cd
   \ defx#do_action('change_vim_cwd')
+  nnoremap <silent><buffer><expr> e
+  \ defx#do_action('execute_system')
 endfunction
 
 autocmd VimEnter * execute 'Defx'
