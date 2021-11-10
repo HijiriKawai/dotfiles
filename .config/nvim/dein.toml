@@ -33,6 +33,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'romgrk/barbar.nvim'
+hook_add = '''
+  source ~/.config/nvim/plugins/barbar.vim
+'''
+
+[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 
 [[plugins]]
@@ -49,6 +55,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
