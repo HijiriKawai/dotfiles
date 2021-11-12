@@ -2,7 +2,6 @@
 
 ## install
 
-```
+```console
 make install
 ```
-

@@ -1,10 +1,2 @@
 .vscode/
-.config/coc/
-.config/configstore/
-.config/gh/
-.config/gitui/
-.config/iterm2/
-.config/octave/
-.config/yarn/
-bin/appcode
-bin/webstorm
+
