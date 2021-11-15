@@ -13,7 +13,8 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-git',
   \ 'coc-clangd',
-  \ 'coc-docker'
+  \ 'coc-docker',
+  \ 'coc-pyright'
 \]
 
 nmap <silent> gd <Plug>(coc-definition)
