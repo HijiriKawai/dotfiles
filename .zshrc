@@ -26,6 +26,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # zinit plugins
 zinit ice wait'0'; zinit light zsh-users/zsh-completions
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=1
