@@ -79,6 +79,5 @@ function! s:defx_my_settings() abort
   \ defx#do_action('execute_system')
 endfunction
 
-autocmd VimEnter * execute 'Defx'
 nnoremap <silent> <Leader>f :<C-u> Defx <CR>
 

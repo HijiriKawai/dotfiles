@@ -71,6 +71,8 @@ set shiftwidth=2
 set laststatus=2
 set wildmenu
 set guifont=HackGen
+autocmd VimEnter * execute 'Startify'
+autocmd VimEnter * execute 'Defx'
 colorscheme edge
 tnoremap <Esc> <C-\><C-n>
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>

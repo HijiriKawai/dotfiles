@@ -21,6 +21,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'mhinz/vim-startify'
+hook_add = '''
+  source ~/.config/nvim/plugins/vim-startify.vim
+'''
+
+[[plugins]]
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
