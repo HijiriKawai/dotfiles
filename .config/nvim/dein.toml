@@ -124,3 +124,9 @@ repo = 'luochen1990/rainbow'
 hook_add = '''
   source ~/.config/nvim/plugins/rainbow.vim
 '''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+  source ~/.config/nvim/plugins/open-browser.vim
+'''
