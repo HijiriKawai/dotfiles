@@ -48,6 +48,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/Users/hijiri/bin/
 export PATH="/Users/hijiri/.deno/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="/Users/hijiri/go/bin:$PATH"
 
 # alias
 alias e='exa --icons --git'
