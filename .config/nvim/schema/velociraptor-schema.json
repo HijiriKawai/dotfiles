@@ -1,0 +1,424 @@
+{
+  "$ref": "#/definitions/ScriptsConfiguration",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AllowFlags": {
+      "additionalProperties": false,
+      "properties": {
+        "all": {
+          "type": "boolean"
+        },
+        "env": {
+          "type": "boolean"
+        },
+        "ffi": {
+          "type": "boolean"
+        },
+        "hrtime": {
+          "type": "boolean"
+        },
+        "net": {
+          "type": ["string", "boolean"]
+        },
+        "read": {
+          "type": ["string", "boolean"]
+        },
+        "run": {
+          "type": "boolean"
+        },
+        "write": {
+          "type": ["string", "boolean"]
+        }
+      },
+      "type": "object"
+    },
+    "CompositeScript": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ParallelScripts"
+        },
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/Script"
+              },
+              {
+                "$ref": "#/definitions/ParallelScripts"
+              }
+            ]
+          },
+          "type": "array"
+        }
+      ],
+      "description": "An array of scripts or an object representing script\nto be executed in parallel"
+    },
+    "EnvironmentVariables": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "FlagsObject": {
+      "type": "object"
+    },
+    "GitHook": {
+      "enum": [
+        "applypatch-msg",
+        "pre-applypatch",
+        "post-applypatch",
+        "pre-commit",
+        "pre-merge-commit",
+        "prepare-commit-msg",
+        "commit-msg",
+        "post-commit",
+        "pre-rebase",
+        "post-checkout",
+        "post-merge",
+        "pre-push",
+        "post-update",
+        "push-to-checkout",
+        "pre-auto-gc",
+        "post-rewrite",
+        "sendemail-validate"
+      ],
+      "type": "string"
+    },
+    "ParallelScripts": {
+      "additionalProperties": false,
+      "description": "An object representing scripts\nto be executed in parallel",
+      "properties": {
+        "desc": {
+          "description": "A textual description of what this set of scripts do.\nThis will be shown in the list of available scripts,\nwhen calling `vr` without arguments.",
+          "type": "string"
+        },
+        "pll": {
+          "description": "The list of script to be executed in parallel",
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["pll"],
+      "type": "object"
+    },
+    "Script": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/definitions/ScriptObject"
+        }
+      ],
+      "description": "Either a command string or an object representing the script"
+    },
+    "ScriptDefinition": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Script"
+        },
+        {
+          "$ref": "#/definitions/CompositeScript"
+        }
+      ],
+      "description": "Either a script or a list of scripts"
+    },
+    "ScriptObject": {
+      "additionalProperties": false,
+      "description": "An object representing the script",
+      "properties": {
+        "allow": {
+          "anyOf": [
+            {
+              "items": {
+                "enum": [
+                  "all",
+                  "env",
+                  "hrtime",
+                  "net",
+                  "ffi",
+                  "read",
+                  "run",
+                  "write"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "#/definitions/AllowFlags"
+            }
+          ],
+          "description": "A list of boolean `--allow-*` deno cli options or\na map of option names to values\n\n```yaml\n# scripts.yaml\nscripts:\n  start: deno run server.ts\n  allow:\n    - net\n    - read\n```"
+        },
+        "cachedOnly": {
+          "description": "Require that remote dependencies are already cached",
+          "type": "boolean"
+        },
+        "cert": {
+          "description": "The path to a PEM certificate file,\npassed to deno cli's `--cert` option.",
+          "type": "string"
+        },
+        "cmd": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/CompositeScript"
+            }
+          ],
+          "description": "A command or list of commands"
+        },
+        "desc": {
+          "description": "A textual description of what this script does.\nThis will be shown in the list of available scripts,\nwhen calling `vr` without arguments.",
+          "type": "string"
+        },
+        "env": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": "A map of environment variables to be passed to the script"
+        },
+        "envFile": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "A file with a list of environment variables to be passed to the script"
+        },
+        "gitHook": {
+          "$ref": "#/definitions/GitHook",
+          "description": "A git hook where to execute this command"
+        },
+        "imap": {
+          "description": "The path to an importmap json file,\npassed to deno cli's `--importmap` option.\n\n**Note** This currently requires the `--unstable` flag",
+          "type": "string"
+        },
+        "inspect": {
+          "description": "The hostname and port where to start the inspector,\npassed to deno cli's `--inspect` option.",
+          "type": "string"
+        },
+        "inspectBrk": {
+          "description": "Same as `inspect`, but breaks at start of user script.",
+          "type": "string"
+        },
+        "lock": {
+          "description": "The path to an _existing_ lockfile,\npassed to deno cli's `--lock` option.\n\n**Note** This doesn't create the lockfile, use `--lock-write` manually\nwhen appropriate",
+          "type": "string"
+        },
+        "log": {
+          "description": "The log level, passed to deno cli's `--log-level` option.",
+          "type": "string"
+        },
+        "noCheck": {
+          "description": "Skip type checking modules",
+          "type": "boolean"
+        },
+        "noRemote": {
+          "description": "Do not resolve remote modules",
+          "type": "boolean"
+        },
+        "quiet": {
+          "description": "Suppress diagnostic output",
+          "type": "boolean"
+        },
+        "reload": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "Reload source code cache (recompile TypeScript)"
+        },
+        "tsconfig": {
+          "description": "The path to a tsconfig json file,\npassed to deno cli's `--tsconfig` option.",
+          "type": "string"
+        },
+        "unstable": {
+          "description": "Enable unstable APIs",
+          "type": "boolean"
+        },
+        "v8Flags": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "#/definitions/FlagsObject"
+            }
+          ],
+          "description": "A list of boolean V8 flags or\na map of V8 option names to values\n\n```yaml\n# scripts.yaml\nscripts:\n  start: deno run server.ts\n  v8Flags:\n    - expose-gc\n    - async-stack-trace\n```"
+        },
+        "watch": {
+          "description": "Watch for file changes and restart process automatically",
+          "type": "boolean"
+        }
+      },
+      "required": ["cmd"],
+      "type": "object"
+    },
+    "Scripts": {
+      "additionalProperties": {
+        "$ref": "#/definitions/ScriptDefinition"
+      },
+      "description": "The scripts object.\nKeys are script identifiers, values are `ScriptDefinition`s.\n\n```yaml\n# scripts.yaml\nscripts:\n  start: deno run server.ts\n  test: deno test\n```",
+      "type": "object"
+    },
+    "ScriptsConfiguration": {
+      "additionalProperties": false,
+      "description": "Script file model",
+      "properties": {
+        "allow": {
+          "anyOf": [
+            {
+              "items": {
+                "enum": [
+                  "all",
+                  "env",
+                  "hrtime",
+                  "net",
+                  "ffi",
+                  "read",
+                  "run",
+                  "write"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "#/definitions/AllowFlags"
+            }
+          ],
+          "description": "A list of boolean `--allow-*` deno cli options or\na map of option names to values\n\n```yaml\n# scripts.yaml\nscripts:\n  start: deno run server.ts\n  allow:\n    - net\n    - read\n```"
+        },
+        "cachedOnly": {
+          "description": "Require that remote dependencies are already cached",
+          "type": "boolean"
+        },
+        "cert": {
+          "description": "The path to a PEM certificate file,\npassed to deno cli's `--cert` option.",
+          "type": "string"
+        },
+        "env": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": "A map of environment variables to be passed to the script"
+        },
+        "envFile": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "A file with a list of environment variables to be passed to the script"
+        },
+        "imap": {
+          "description": "The path to an importmap json file,\npassed to deno cli's `--importmap` option.\n\n**Note** This currently requires the `--unstable` flag",
+          "type": "string"
+        },
+        "inspect": {
+          "description": "The hostname and port where to start the inspector,\npassed to deno cli's `--inspect` option.",
+          "type": "string"
+        },
+        "inspectBrk": {
+          "description": "Same as `inspect`, but breaks at start of user script.",
+          "type": "string"
+        },
+        "lock": {
+          "description": "The path to an _existing_ lockfile,\npassed to deno cli's `--lock` option.\n\n**Note** This doesn't create the lockfile, use `--lock-write` manually\nwhen appropriate",
+          "type": "string"
+        },
+        "log": {
+          "description": "The log level, passed to deno cli's `--log-level` option.",
+          "type": "string"
+        },
+        "noCheck": {
+          "description": "Skip type checking modules",
+          "type": "boolean"
+        },
+        "noRemote": {
+          "description": "Do not resolve remote modules",
+          "type": "boolean"
+        },
+        "quiet": {
+          "description": "Suppress diagnostic output",
+          "type": "boolean"
+        },
+        "reload": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "Reload source code cache (recompile TypeScript)"
+        },
+        "scripts": {
+          "$ref": "#/definitions/Scripts"
+        },
+        "tsconfig": {
+          "description": "The path to a tsconfig json file,\npassed to deno cli's `--tsconfig` option.",
+          "type": "string"
+        },
+        "unstable": {
+          "description": "Enable unstable APIs",
+          "type": "boolean"
+        },
+        "v8Flags": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "#/definitions/FlagsObject"
+            }
+          ],
+          "description": "A list of boolean V8 flags or\na map of V8 option names to values\n\n```yaml\n# scripts.yaml\nscripts:\n  start: deno run server.ts\n  v8Flags:\n    - expose-gc\n    - async-stack-trace\n```"
+        },
+        "watch": {
+          "description": "Watch for file changes and restart process automatically",
+          "type": "boolean"
+        }
+      },
+      "required": ["scripts"],
+      "type": "object"
+    }
+  }
+}

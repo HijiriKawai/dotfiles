@@ -16,5 +16,11 @@
   "rust-analyzer.inlayHints.refreshOnInsertMode": true,
   "rust-analyzer.lens.methodReferences": true,
   "rust-analyzer.hover.linksInHover": true,
-  "rust-analyzer.hover.documentation": true
+  "rust-analyzer.hover.documentation": true,
+  "yaml.schemas": {
+    "/Users/hijiri/dotfiles/.config/nvim/schema/velociraptor-schema.json": [
+      "scripts.yaml",
+      "velociraptor.yaml"
+    ]
+  }
 }
