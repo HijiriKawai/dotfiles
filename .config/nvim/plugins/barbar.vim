@@ -5,15 +5,15 @@ nnoremap <silent> . :BufferNext<CR>
 nnoremap <silent> < :BufferMovePrevious<CR>
 nnoremap <silent> > :BufferMoveNext<CR>
 " Goto buffer in position...
-nnoremap <silent> 1 :BufferGoto 1<CR>
-nnoremap <silent> 2 :BufferGoto 2<CR>
-nnoremap <silent> 3 :BufferGoto 3<CR>
-nnoremap <silent> 4 :BufferGoto 4<CR>
-nnoremap <silent> 5 :BufferGoto 5<CR>
-nnoremap <silent> 6 :BufferGoto 6<CR>
-nnoremap <silent> 7 :BufferGoto 7<CR>
-nnoremap <silent> 8 :BufferGoto 8<CR>
-nnoremap <silent> 9 :BufferLast<CR>
+nnoremap <silent> b1 :BufferGoto 1<CR>
+nnoremap <silent> b2 :BufferGoto 2<CR>
+nnoremap <silent> b3 :BufferGoto 3<CR>
+nnoremap <silent> b4 :BufferGoto 4<CR>
+nnoremap <silent> b5 :BufferGoto 5<CR>
+nnoremap <silent> b6 :BufferGoto 6<CR>
+nnoremap <silent> b7 :BufferGoto 7<CR>
+nnoremap <silent> b8 :BufferGoto 8<CR>
+nnoremap <silent> b9 :BufferLast<CR>
 " Pin/unpin buffer
 nnoremap <silent> bp :BufferPin<CR>
 " Close buffer
