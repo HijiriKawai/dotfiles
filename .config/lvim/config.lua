@@ -13,7 +13,7 @@ lvim.builtin.autopairs.active = true
 lvim.builtin.project.active = true
 lvim.builtin.gitsigns.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.show_icons.git = 1
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
@@ -30,8 +30,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "kotlin",
   "yaml",
 }
-
-lvim.lsp.automatic_servers_installation = true
 
 lvim.plugins = {
   {
