@@ -1,24 +1,20 @@
-local dap_install = require "dap-install"
-dap_install.config("ccppr_vsc", {
-  adapters = {
-    type = "executable",
-  },
-  configurations = {
+  local dap = require('dap')
+  dap.adapters.lldb = {
+    type = 'executable',
+    command = '/opt/homebrew/opt/llvm/bin/lldb-vscode', -- adjust as needed
+    name = "lldb"
+  }
+  dap.configurations.cpp = {
     {
-      type = "cpptools",
+      name = "Launch",
+      type = "lldb",
       request = "launch",
-      name = "Launch with pretty-print",
       program = function()
-        return vim.fn.input('Path to exe: ', vim.fn.getcwd() .. '/', 'file')
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
       end,
-      cwd = "${workspaceFolder}",
-      stopOnEntry = true,
-      setupCommands = {
-        {
-          description = "Enable pretty-printing",
-          text = "-enable-pretty-printing",
-        }
-      }
+      cwd = '${workspaceFolder}',
+      stopOnEntry = false,
+      args = {},
+      runInTerminal = false,
     },
   }
-})
