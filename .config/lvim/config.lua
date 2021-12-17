@@ -1,6 +1,6 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "edge"
 
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -62,6 +62,9 @@ lvim.plugins = {
       "Gedit"
     },
     ft = {"fugitive"}
+  },
+  {
+    "sainnhe/edge",
   },
   {
     "iamcco/markdown-preview.nvim",
