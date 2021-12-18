@@ -133,3 +133,15 @@ repo = 'tyru/open-browser.vim'
 hook_add = '''
   source ~/.config/nvim/plugins/open-browser.vim
 '''
+
+[[plugins]]
+repo = 'akinsho/toggleterm.nvim'
+hook_add = '''
+  source ~/.config/nvim/plugins/toggleterm.vim
+'''
+
+[[plugins]]
+repo = 'folke/which-key.nvim'
+hook_add = '''
+  source ~/.config/nvim/plugins/which-key.vim
+'''

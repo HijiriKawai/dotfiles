@@ -61,6 +61,7 @@ EOF
 " editor config
 syntax enable
 filetype plugin indent on
+let mapleader = "<Space>"
 set nocompatible
 set number
 set list listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:·
@@ -70,6 +71,11 @@ set tabstop=2
 set shiftwidth=2
 set laststatus=2
 set wildmenu
+set mouse=a
+set hidden
+set autoread
+set nobackup
+set noswapfile
 set guifont=HackGen
 autocmd VimEnter * execute 'Startify'
 autocmd VimEnter * execute 'Defx'
