@@ -9,6 +9,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'josa42/vim-lightline-coc'
+
+[[plugins]]
 repo = 'mfussenegger/nvim-dap'
 hook_add = '''
   source ~/.config/nvim/plugins/nvim-dap.vim

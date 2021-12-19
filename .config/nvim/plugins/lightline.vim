@@ -4,17 +4,18 @@ let g:lightline = {
   \ 'enable': { 'tabline': 0 },
   \ 'colorscheme': 'edge',
   \ 'active': {
-    \ 'left': [ [ 'mode', 'paste' ], [ 'fugitive' ,'filename', 'method' ], ['cocstatus'] ],
-    \ 'right':[ [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ] ],
+    \ 'left': [ [ 'mode', 'paste' ], [ 'fugitive' ,'filename', 'method' ], ['coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok'] ],
+    \ 'right':[ ['coc_status'] ,[ 'filetype', 'fileencoding', 'lineinfo', 'percent' ] ],
     \ },
   \ 'component_function': {
-    \ 'cocstatus': 'coc#status',
     \ 'fugitive': 'LightlineFugitive',
     \ 'filename': 'LightlineFilename',
     \ },
   \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
   \ 'subseparator' :{ 'left': '\ue0b1', 'right': '\ue0b3' },
 \ }
+
+call lightline#coc#register()
 
 function! LightlineFugitive()
   return fugitive#head()
