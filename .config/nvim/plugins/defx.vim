@@ -79,5 +79,5 @@ function! s:defx_my_settings() abort
   \ defx#do_action('execute_system')
 endfunction
 
-nnoremap <silent> <Leader>f :<C-u> Defx <CR>
+nnoremap <silent> <C-f> :<C-u> Defx <CR>
 
