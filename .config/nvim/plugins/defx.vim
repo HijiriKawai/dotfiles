@@ -4,15 +4,17 @@ call defx#custom#option('_', {
   \ 'split': 'vertical',
   \ 'direction': 'topleft',
   \ 'show_ignored_files': 1,
-  \ 'buffer_name': 'exlorer',
   \ 'toggle': 1,
   \ 'resume': 1,
+  \ 'show_parent': 1,
 \ })
 
 autocmd FileType defx call s:defx_my_settings()
 
 function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
+   \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> <2-LeftMouse>
    \ defx#do_action('drop')
   nnoremap <silent><buffer><expr> c
   \ defx#do_action('copy')
@@ -79,5 +81,7 @@ function! s:defx_my_settings() abort
   \ defx#do_action('execute_system')
 endfunction
 
+autocmd BufEnter * call defx#redraw()
+autocmd BufWritePost * call defx#redraw()
 nnoremap <silent> <C-f> :<C-u> Defx <CR>
 
