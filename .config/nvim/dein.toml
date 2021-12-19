@@ -82,9 +82,6 @@ repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
-hook_add = '''
-  source ~/.config/nvim/plugins/defx-icons.vim
-'''
 
 [[plugins]]
 repo = "kristijanhusak/defx-git"
