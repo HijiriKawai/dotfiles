@@ -87,6 +87,10 @@ nnoremap <S-Left>  :<C-u>vertical resize -1<CR>
 nnoremap <S-Right> :<C-u>vertical resize +1<CR>
 nnoremap <S-Up>    :<C-u>resize -1<CR>
 nnoremap <S-Down>  :<C-u>resize +1<CR>
+nnoremap <C-Z> u
+nnoremap <C-Y> <C-R>
+inoremap <C-Z> <C-O>u
+inoremap <C-Y> <C-O><C-R>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
