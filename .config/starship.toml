@@ -1,0 +1,26 @@
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
+[memory_usage]
+disabled = false
+
+[localip]
+ssh_only = false
+disabled = false
+
+[status]
+disabled = false
+
+[sudo]
+disabled = false
+
+[username]
+show_always = true
+
+[time]
+disabled = false
+time_format = "%F|%T"
+
+[git_metrics]
+disabled = false
