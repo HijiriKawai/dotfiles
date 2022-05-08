@@ -67,8 +67,7 @@ set number
 set list listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%,space:·
 set smartindent
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set ts=2 sw=2 et
 set laststatus=2
 set wildmenu
 set mouse=a

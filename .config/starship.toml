@@ -5,10 +5,6 @@ truncate_to_repo = false
 [memory_usage]
 disabled = false
 
-[localip]
-ssh_only = false
-disabled = false
-
 [status]
 disabled = false
 
@@ -24,3 +20,15 @@ time_format = "%F|%T"
 
 [git_metrics]
 disabled = false
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 100
+style = "bold green"
